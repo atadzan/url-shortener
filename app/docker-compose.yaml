@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=strongPassword
+      - POSTGRES_DB=goly
+    ports:
+      - 5454:5432
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+
+volumes:
+  db_volume:
